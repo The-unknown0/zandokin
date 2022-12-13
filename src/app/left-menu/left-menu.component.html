@@ -1,0 +1,107 @@
+<div id="ct-left-menu">
+<section>
+    <main *ngIf="isConnected, else noteConnectedLoginCase">
+        <p routerLink="home" routerLinkActive="left-menu-list-tile-active" class="left-menu-list-tile"><img src="assets/icons/icon-home.png" alt="" class="left-menu-list-tile-icon"> Accueil</p>
+        <a href="http://localhost:4300" target="_blank"><p class="left-menu-list-tile" ><img src="../../assets/icons/icon message.png" alt="" class="left-menu-list-tile-icon">Messages</p></a>
+        <p routerLink="bucket" routerLinkActive="left-menu-list-tile-active" class="left-menu-list-tile"><img src="assets/icons/icon-my-bucket-filled.png" alt="" class="left-menu-list-tile-icon">Mon panier</p>
+        <p routerLink="my-article"routerLinkActive="left-menu-list-tile-active"class="left-menu-list-tile"><img src="assets/icons/icon articles.png" alt="" class="left-menu-list-tile-icon">Mes articles</p>
+        <p routerLink="settings" routerLinkActive="left-menu-list-tile-active" class="left-menu-list-tile"><img src="assets/icons/icon reglage.png" alt=""  class="left-menu-list-tile-icon">Paramètres</p>
+        <p (click)="logOut()" class="left-menu-list-tile"><img src="assets/icons/icon disconnexion.png" alt="" class="left-menu-list-tile-icon">Déconnexion</p>
+    </main>
+    <ng-template #noteConnectedLoginCase>
+        <h3 id="cntct-and-profite">Connectez-vous et profiter gratuitement de Zandokin</h3>
+        <app-login routerLink="log-in"></app-login>
+    </ng-template>
+</section>
+<section>
+    <p>Les Catégories</p>
+    <main>
+        <div *ngFor="let ct of categories" (click)="goToArticles('category', ct.id)" class="icon-category-menu" style="--bg: url('../assets/icons/category-{{ct.id}}.png');" title="{{ct.name}}"></div>
+       <!--  <div (click)="goToArticles('category', 'service')" class="icon-category-menu" style="--bg: url('../assets/icons/category-service.png');" title="service"></div>
+        <div (click)="goToArticles('category', 'sport')" class="icon-category-menu" style="--bg: url('../assets/icons/category-sport.png');" title="Sport"></div>
+        <div (click)="goToArticles('category', 'téléphone')" class="icon-category-menu" style="--bg: url('../assets/icons/category-phones.png');" title="Téléphone"></div>
+        <div (click)="goToArticles('category', 'beauté')" class="icon-category-menu" style="--bg: url('../assets/icons/category-beaute.png');"title="Beauté"></div>
+        <div (click)="goToArticles('category', 'bricolage')" class="icon-category-menu" style="--bg: url('../assets/icons/category-brico.png');"title="Bricolage"></div>
+        <div (click)="goToArticles('category', 'electro')" class="icon-category-menu" style="--bg: url('../assets/icons/category-electro.png');"title="Electro-ménagers"></div>
+        <div (click)="goToArticles('category', 'immo')" class="icon-category-menu" style="--bg: url('../assets/icons/category-immo.png');"title="Immobilier"></div>
+        <div (click)="goToArticles('category', 'informatique')" class="icon-category-menu" style="--bg: url('../assets/icons/category-info.png');"title="Informatique"></div>
+        <div (click)="goToArticles('category', 'jeux')" class="icon-category-menu" style="--bg: url('../assets/icons/category-jeux.png');"title="Jeux"></div>
+        <div (click)="goToArticles('category', 'vetement')" class="icon-category-menu" style="--bg: url('../assets/icons/category-vetement.png');"title="Habits"></div>
+        <div (click)="goToArticles('category', 'automobile')" class="icon-category-menu" style="--bg: url('../assets/icons/category-cars.png');"title="Véhicules"></div>
+        <div (click)="goToArticles('category', 'accessoires')" class="icon-category-menu" style="--bg: url('../assets/icons/category-accessoires.png');"title="Accessoires"></div>
+        <div (click)="goToArticles('category', 'déco')"class="icon-category-menu" style="--bg: url('../assets/icons/category-deco.png');"title="Décoration & Interieure"></div>
+        <div (click)="goToArticles('category', 'photographie')" class="icon-category-menu" style="--bg: url('../assets/icons/category-photographie.png');"title="Photographie"></div>
+        <div (click)="goToArticles('category', 'bijoux')"class="icon-category-menu" style="--bg: url('../assets/icons/category-bijoux.png');"title="Bijoux"></div> -->
+        <div *ngIf="!isConnected" routerLink="home" class="icon-category-menu" style="--bg: url('../assets/icons/icon home.png');"title="Retour à l'acceuil"></div>
+    </main>
+</section>
+<section id="menu-sponsorised">
+    <h6>Sponsorisé &#9989;</h6>
+    <style>
+        #lft-mn-btn-ins{
+            color: #0cf;
+        }
+        .ct-rounded-indicator{
+            display: flex;
+            justify-content: center;
+        }
+        .rounded-indicator{
+            border-radius: 50%;
+            border: 2px solid;
+            width: 1em;
+            height: 1em;
+            margin: 5px;
+        }
+        .active{
+            background: #000;
+        }
+    </style>
+    <div id="zk-pub-section">
+        <main>
+            <article class="section-1-article">
+                <h3>Multi vendor</h3>
+                <img src="../../assets/icons/Multi vendor.png" alt="">
+                <div>
+                    Dans la plus part des plateform e-commerce, vous pouvez facilement trouver des produits quand vous voulez en acheter mais qu'est-ce qui se passe si vous aussi vous voulez vendre vos produits? Sur zandokin, vous n'etes pas que acheteur vous pouvez aussi vendre vos produits et services...
+                </div>
+            </article>
+            <article class="section-1-article">
+                <h3>100% Gratuit</h3>
+                <img src="../../assets/icons/free.png" alt="">
+                <div>
+                Connaissez-vous des plateforms e-commerce (multi vendor) gratuit ? la reponse c'est Zandokin, aucune exigeance en terme de frais ni de taxe, vous ne payer rien pour utiliser Zandokin : ni pour acheter, ni pour vendre, ni pour quoi que ce soit. Tout est gratuit ici.
+                </div>
+            </article>
+            <article class="section-1-article">
+                <h3>Pour Kinshasa</h3>
+                <img src="../../assets/icons/location.png" alt="">
+                <div>
+                    L'une des choses qui fait de Zandokin l'un des meilleures plateform dans sa catégorie, c'est qu'il est fait pour les ventes et achats réservés pour la ville province de Kinshasa, de ce fait il est facile de trouver un produit sans inquiètude car vous savez qu'il est vendu à Kinshasa.
+                </div>
+            </article>
+        </main>
+        <section class="ct-rounded-indicator">
+            <div class="rounded-indicator"></div>
+            <div class="rounded-indicator active"></div>
+            <div class="rounded-indicator"></div>
+        </section>
+    </div>
+    <div *ngIf="!isConnected">
+        Je n'ai pas de compte <a routerLink="sign-up" href="#" id="lft-mn-btn-ins">Je m'inscrit</a> gratuitement.
+    </div>
+</section>
+<section routerLink="settings/user-settings">
+    <img *ngIf="isConnected" src="http://127.0.0.1:4100/profils/{{user.profil}}" alt="">
+    <img *ngIf="!isConnected" src="http://127.0.0.1:4100/profils/avatar_logo.png" alt="">
+    <h3 *ngIf="isConnected, else noteConnectedCase">{{user.name}}</h3>
+    <ng-template #noteConnectedCase>
+        Vous n'etes pas connecté
+    </ng-template>
+</section>
+<section>
+    <main>
+        <button (click)="addAnArticle()" class="btn" id="menu-btn-plus" onclick="$('#header-menu').hide();">+</button>
+        <p>Ajouter un article</p>
+    </main>
+</section>
+</div>

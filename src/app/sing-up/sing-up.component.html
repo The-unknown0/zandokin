@@ -1,0 +1,157 @@
+<section id="sign-up-section">
+    <main>
+        <article>
+            <div id="main-title">
+                <div>
+                    <img src="../../assets/icons/icon-signup.png" alt="" width="35" height="35">
+                </div>
+                <div>
+                    <h3>Réjoignez Zandokin</h3>
+                    <div>Vendez & Acheter librément</div>
+                </div>
+            </div>
+            <div class="ct-rounded-ind">
+                <div class="ct-rounded-indicator">
+                    <div class="rounded-indicator active">1</div>
+                    <small>Identité</small>
+                </div>
+                <div class="ct-rounded-indicator">
+                    <div class="line-indicator"></div>
+                </div>
+                <div class="ct-rounded-indicator">
+                    <div class="rounded-indicator">2</div>
+                    <small>Sécurité</small>
+                </div>
+                <div class="ct-rounded-indicator">
+                    <div class="line-indicator"></div>
+                </div>
+                <div class="ct-rounded-indicator">
+                    <div class="rounded-indicator">3</div>
+                    <small>Révu</small>
+                </div>
+            </div>
+        </article>
+        <br>
+        <form #signupForm="ngForm">
+        <article id="sign-up-article-2">
+            <div class="ct-form-control">
+                <H3>
+                    <span class="text-red">*</span>Identification
+                </H3>
+                <br>
+                <label for=""><span class="text-red">*</span>Nom d'utlisateur</label>
+                <div *ngIf="name.touched && name.invalid">
+                    <small *ngIf="name.getError('required')" class="text-red">Veuillez remplir ce champ s'il vous plait</small>
+                    <small *ngIf="name.getError('pattern')" class="text-red">le nom doit commencer par des lettres (en miniscule, sans caractères spéciales, sans espace, peut inclure _) <span class="text-green">ex. floflo_01</span></small>
+                </div>
+                <input #name="ngModel" required pattern="^[a-z]+[\_a-z0-9]*" name="userName"  [(ngModel)]="userName" type="text" class="sign-up-form-control">
+                <label for=""><span class="text-red">*</span>Numéro téléphone</label>
+                <div *ngIf="(number.touched && number.invalid) || numberAlreadyUsed">
+                    <small *ngIf="number.getError('required')" class="text-red">Veuillez entrer votre numéro s'il vous plait</small>
+                    <small *ngIf="number.getError('pattern')" class="text-red">Entez un numéro valide (numéro whatsapp ou pas) <span class="text-green">ex. (+243) 8178888888</span></small>
+                    <small *ngIf="numberAlreadyUsed" class="text-red">Le numéro entré est déjà utilisé <span style="color: #0cf; cursor: pointer;" (click)="navigateToLogin('+243'+number.value)">(se connecter ?)</span></small>
+                </div>
+                <div class="input-group">
+                    <button>+243</button><input (ngModelChange)="verifyNumber(number.value)" required pattern="^[8-9][0-9]{8}$" #number="ngModel" name="number" [(ngModel)]="userNumber" type="text" class="">
+                </div>
+                <label for=""><span class="text-red">*</span>Photo de profil</label>
+                <div *ngIf="(picture.touched) && (pictureError || picture.invalid) ">
+                    <small *ngIf="picture.getError('required')" class="text-red">Il est obligatoire qu'un article ait une photo</small>
+                    <small *ngIf="pictureError" class="text-red">Selectionnez une photo au bon format (png, jpeg, jpg et gif) <span class="text-green">ex. photo.png</span></small>
+                </div>
+                <input #picture="ngModel" name="picture" [(ngModel)]="this.picturePlaceholder" type="file" (change)="getProfil($event)" class="sign-up-form-control">
+            </div>
+            <div class="box-astuce">
+                <h4>Astuces ❔</h4>
+                <div class="box-astuce-main">
+                    <ul>
+                        <div>Choisissez un nom d'utilisateur simple en miniscule, sans espace, sans caractère spécial</div>
+                        <div>Assurez-vous d'utiliser un numéro valide : impossible de créer un compte avec un numéro existant</div>
+                        <div>Vous pouvez ou pas mettre une photo de profil pour mieux vous différenciez.</div>
+                    </ul>
+                </div>
+            </div>
+        </article>
+        <br>
+        <article id="sign-up-article-4">
+            <div class="ct-form-control">
+                <H3>
+                    <span class="text-red">*</span>Sécurité
+                </H3>
+                <br>
+                <label for=""><span class="text-red">*</span>Mot de passe <span class="text-green" *ngIf="password.touched && password.invalid"> (mot de passe proposé "{{generatedPassword}}")</span></label>
+                <div *ngIf="password.touched && password.invalid">
+                    <small *ngIf="password.getError('required')" class="text-red">Veuillez ajouter un mot de passe s'il vous plait </small>
+                    <small *ngIf="password.getError('pattern')" class="text-red">Minimun 6 caractères, doit inclure de caratères spéciaux pour plus de sécurité</small>
+                </div>
+                <input required pattern="[\w &é(-è_ç)]{6,10}" (pointerleave)="generatePassword()" #password="ngModel" name="password" [(ngModel)]="userPassword" type="text" class="sign-up-form-control">
+                <label for=""><span class="text-red">*</span>Confirmer Mot de passe</label>
+                <input type="text" class="sign-up-form-control">
+            </div>
+            <div class="box-astuce">
+                <h4>&#129300; Astuces ❔</h4>
+                <div class="box-astuce-main">
+                    <div>Mot de passe minimun 6 caractères.</div>
+                    <div>Pas de suite de lettre ni de chiffre</div>
+                    <div>Vous n'etes pas obligé de mettre un compte mail</div>
+                </div>
+            </div>
+        </article>
+        <br>
+        <article id="sign-up-article-6" class="ct-revue">
+            <div class="ct-form-control">
+                <H3>
+                    <span class="text-red">*</span>Révue et Confirmation
+                </H3>
+                <br>
+                <div class="ct-review-img-user">
+                    <img src="../assets/icons/avatar_logo.png" alt="">
+                </div>
+                <br>
+                <label for=""><span class="text-red">*</span>Nom d'utilisateur</label>
+                <input value="{{userName}}" type="text" class="sign-up-ct-revue-form-control">
+            </div>
+            <div class="ct-form-control">
+                <label for=""><span class="text-red">*</span>Numéro de téléphone</label>
+                <input type="text" value="+243{{userNumber}}" class="sign-up-ct-revue-form-control">
+                <label for=""><span class="text-red">*</span>Mot de passe</label>
+                <input type="text" value="{{userPassword}}" class="sign-up-ct-revue-form-control">
+            </div>
+        </article>
+        <br>
+        <article class="sign-up-article-3-btn">
+            <div class="text-red">
+                Annuler
+            </div>
+            <div>
+                <button [disabled]="signupForm.form.invalid" style="--bg: #ee7a0e;" (click)="signUp()">
+                    Inscription
+                    <div *ngIf="isLoading" class="spinner-border" style="--color: #000;"></div>
+                </button>
+            </div>
+        </article>
+    </form>
+    </main>
+</section>
+<div class="alert-setting-done-success" *ngIf="success">
+    <h3 class="title">Succès</h3>
+    <div class="bg-img">
+        <div class="msg-container">
+            {{message}}
+        </div>
+    </div>
+    <div class="actions-row">
+        <button (click)="reload()" style="--bg : green;">Compris</button>
+    </div>
+</div>
+<div class="alert-setting-done-error" *ngIf="error">
+    <h3 class="title">Erreur</h3>
+    <div class="bg-img">
+        <div class="msg-container">
+            {{message}}
+        </div>
+    </div>
+    <div class="actions-row">
+        <button (click)="reload()" style="--bg : red;">Compris</button>
+    </div>
+</div>

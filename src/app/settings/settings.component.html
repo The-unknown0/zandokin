@@ -1,0 +1,123 @@
+<style>
+    #settings-home{
+        width: 100%;
+        height: 100px;
+        margin: 15px 0px; 
+    }
+    #settings-home-main{
+        display: flex;
+        border: none;
+        margin: 10px;
+        height: 96%;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+    }
+    #main-title{
+        display: flex;
+        align-items: center;
+        margin: 5px;
+    }
+    .setting-items{
+        width: 22%;
+        height: 100%;
+        border: 3px solid orange;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+    }
+    .stg-itm-ct-img{
+        width: 30%;
+        height: 60%;
+        margin-bottom: 15px;
+    }
+    .stg-itm-ct-img img{
+        width: 100%;
+        height: 100%;
+    }
+    #router-outlet{
+        width: 95%;
+        margin:  0px auto;
+    }
+    @media ((max-width: 1199px) and (min-width: 798px)) {
+    
+    }
+    @media ((max-width: 797px) and (min-width: 481px)){
+        .setting-items{
+            font-size: 11px;
+        }
+        .stg-itm-ct-img{
+            width: 50%;
+            height: 60%;
+            margin-bottom: 5px;
+        }
+    }
+    @media (max-width: 480px){
+        #settings-home{
+            width: 100%;
+            height: 140px;
+            margin: 15px 0px; 
+        }
+        #settings-home-main{
+            height: 100%;
+        }
+        .setting-items{
+            width: 45%;
+            height: 70px;
+            margin: 5px 0px;
+        }
+        .stg-itm-ct-img{
+            margin-bottom: 1px;
+        }
+        .stg-itm-ct-text{
+            font-size: small;
+        }
+    }
+</style>
+<main id="main">
+    <h3 id="main-title"><img src="assets/icons/icon reglage.png" width="30" alt="">Paramètres</h3>
+    <section id="settings-home">
+        <main id="settings-home-main">
+            <article class="setting-items" (click)="goToSpecificSetting('user-settings')">
+                <div class="stg-itm-ct-img">
+                    <img src="assets/icons/icon-settings-user.png" alt="">
+                </div>
+                <div class="stg-itm-ct-text">
+                    Paramètres d'utilisateur
+                </div>
+            </article>
+            <article class="setting-items" (click)="goToSpecificSetting('article-settings')">
+                <div class="stg-itm-ct-img">
+                    <img src="assets/icons/icon-settings-articles.png" alt="">
+                </div>
+                <div class="stg-itm-ct-text">
+                    Paramètres d'articles
+                </div>
+            </article>
+            <article class="setting-items" (click)="goToSpecificSetting('message-settings')">
+                <div class="stg-itm-ct-img">
+                    <img src="assets/icons/icon-settings-chat.png" alt="">
+                </div>
+                <div class="stg-itm-ct-text">
+                    Paramètres des messages
+                </div>
+            </article>
+            <article class="setting-items">
+                <div class="stg-itm-ct-img">
+                    <img src="assets/icons/icon-settings-extras.png" alt="">
+                </div>
+                <div class="stg-itm-ct-text">
+                    Extras
+                </div>
+            </article>
+        </main>
+        <br>
+    </section>
+    <br>
+    <section id="router-outlet">
+        <router-outlet></router-outlet>
+    </section>
+</main>

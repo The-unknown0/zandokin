@@ -1,0 +1,272 @@
+    <section class="detailling-spinner-ct">
+        <div class="detailling-spinner spinner-border" style="--color: #0cf;"></div>
+    </section>
+    <main class="detail-box-flex-ct" *ngIf="article">
+        <div class="detail-box-flex-item">
+            <img src="http://127.0.0.1:4100/articles_images/{{article.picture}}" alt="" class="detail-article-image" >
+            <div class="label-detailling-image">
+                <button class="detail-btn btn-like" style="--color: #3333da;">
+                    <div>
+                        <span style="font-size: 12px; color: #3333da;" class="smiley"><!-- <img src="icons/icon agree.png" class="btn-icon" alt=""> -->&#10084;</span>
+                        <span>{{article.like}}</span>
+                    </div>
+                </button>
+                <button class="detail-btn btn-seen" style="--color: grey;">
+                    <div>
+                        <span><img src="assets/icons/icon show.png" class="btn-icon" alt=""></span>
+                        <span>Vue(s)</span>
+                    </div>
+                </button>
+                <div *ngIf="article.old_price" class="art-old-price">{{article.old_price}}{{article.devise}}</div>
+                <div class="art-price">{{article.price}}{{article.devise}}</div>
+            </div>
+        </div>
+        <div class="detail-box-flex-item">
+            <h4>
+                <div>{{article.name}}</div>
+                <div class="detailling-badge-for-category pointer" (click)="goToArticles('category', article.category)">
+                    {{article.category}} 
+                    <span class="detailling-badge-for-category-voir-tout">Voir tout...</span>
+                </div>
+            </h4>
+            <div class="green">{{artDate}}</div>
+            <details open>
+                <div>{{article.details}}</div>
+            </details>
+            <div class="ct-btn" *ngIf="article.seller_id._id != user.id, else userOwner">
+                <a href="https://wa.me/{{article.seller_id.number}}?text=Je suis intéressé par votre {{article.name}}sur zandokin'" target="_blank" class="detail-btn btn-whatsapp" style="--color: green;">
+                    <span><img src="assets/icons/whats.png" class="btn-icon" alt=""></span>
+                    <span>whatsapp</span>
+                </a>
+                <a class="detail-btn btn-chat" style="--color: #0cf;">
+                    <span><img src="assets/icons/icon message.png" class="btn-icon" alt=""></span>
+                    <span>Kakola</span>
+                </a>
+                <a (click)="putInBucket(article._id)" class="detail-btn btn-bucket" style="--color: red;">
+                    <span><img src="assets/icons/icon-my-bucket.png" class="btn-icon" alt=""></span>
+                    <span >Tia na kitunga</span>
+                </a> 
+                
+            </div>
+            <ng-template #userOwner>
+                <div class="ct-btn">Il s'agit de votre propre article, modifier <span (click)="update(article._id)" style="color: #ee7a0e;">ici.</span></div>
+            </ng-template>
+        </div>
+    </main>
+    <div class="alert-setting-done-success" *ngIf="success">
+        <h3 class="title" style="background: green;">Succès</h3>
+        <div class="bg-img">
+            <div class="msg-container">
+                {{message}}
+            </div>
+        </div>
+        <div class="actions-row">
+            <button  routerLink="/bucket" style="--bg : green;">Compris</button>
+        </div>
+    </div>
+    <div class="alert-setting-done-error" *ngIf="error">
+        <h3 class="title"  style="background: red;">Erreur</h3>
+        <div class="bg-img">
+            <div class="msg-container">
+                {{message}}
+            </div>
+        </div>
+        <div class="actions-row">
+            <button (click)="gotIt()" style="--bg : red;">Compris</button>
+        </div>
+    </div>
+    <style>
+        .detail-box-flex-ct{
+            width: 95%;
+            margin-left: auto;
+            margin-right: auto;
+            height: 80%;
+            display: none;
+    
+        }
+        .detail-box-flex-item{
+            width: 45%;
+            height: 100%;
+            padding: 0px 12px;
+        }
+        details{
+            text-align: justify;
+            position: fixed;
+            width: 25%;
+            z-index: 2;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .label-detailling-image{
+            margin-top: -16%;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            width: 100%;
+        }
+        .detail-box-flex-item h4{
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            width: 90%;
+        }
+        .detailling-badge-for-category{
+            padding: 2px;
+            border: 1px solid;
+            border-radius: 7px;
+            color: #fff;
+            background: #0cf;
+            font-size: 12px;
+        }
+        .detailling-badge-for-category-voir-tout{
+            background: orangered;
+            padding: 2px;
+            border-bottom-right-radius: 5px;
+            border-top-right-radius: 5px;
+            margin-right: -2px;
+        }
+        .ct-btn{
+            position: fixed;
+            top: 70%;
+        }
+        .detail-article-image{
+            width: 100%;
+            height: 100%;
+        }
+        
+        .detail-btn{
+            padding: 6px;
+            background: #fff;
+            border-radius: 7px;
+            margin-top: 15px;
+            transition: ease-out .3s;
+            border: 1px solid var(--color);
+            color: var(--color);
+            text-decoration: none;
+        }
+        .detail-btn:hover{
+            color: #fff;
+            background:var(--color);
+            box-shadow: 0px 0px 7px grey, 0px 0px 8px var(--color);
+        }
+        .detail-btn:hover .smiley{
+            background: #fff;
+        }
+        .detail-btn div{
+            display: flex;
+            align-items: center;
+        }
+        .btn-icon{
+            width: 20px;
+            height: 20px;
+            padding: 0px;
+            margin: 0px;
+        }
+        .btn-add-input{
+            border: none;
+            background: #0cf;
+            color: #fff;
+            padding: 5px;
+            margin: 5px;
+        }
+        .red{
+            color: red;
+        }
+        .green{
+            color: green;
+        }
+        .ct-btn-submit button{
+            background: #0cd;
+            padding: 7px;
+            border: none;
+            border-radius: 7px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+        .detailling-spinner-ct{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 95%;
+        }
+        .detailling-spinner{
+            border-width: 8px;
+            height: 125px;
+            width: 125px;
+        }
+        .art-price{
+            padding: 10px;
+            font-weight: bold;
+            background-color: #fff;
+            border-radius: 7px;
+            box-shadow: 0px 0px 5px #000;
+        }
+        .art-old-price{
+            padding: 10px;
+            font-weight: bold;
+            background-color: red;
+            border-radius: 7px;
+            box-shadow: 0px 0px 5px #000;
+            text-decoration: line-through;
+            text-decoration-color: #fff;
+            color: #fff;
+        }
+        @media(max-width: 738px){
+            
+            .detail-box-flex-ct{
+                flex-direction: column;
+            }
+            .detail-box-flex-item{
+                width: 90%;
+                margin-left: auto;
+                margin-right: auto;
+                height: 50%;
+            }
+            .detail-box-flex-item:nth-child(1){
+                margin-bottom: 20px;
+            }
+            .detail-box-flex-item:nth-child(2){
+            /*  overflow: scroll; */
+                text-align: left;
+                border: none;
+            }
+            details{
+                width: 80%;
+            }
+            .label-detailling-image{
+                margin-top: -15%;
+            }
+            .ct-btn{
+                position: fixed;
+                top: 85%;
+            }
+        }
+        @media(max-width: 480px){
+            details{
+                font-size: 12px;
+            }
+            .detail-btn{
+                padding: 5px;
+                font-size: 12px;
+                margin: 2px;
+            }
+            .btn-icon{
+                width: 12px;
+                height: 12px;
+            }
+            .detailling-badge-for-category{
+                font-size: 10px;
+                padding: 1px;
+            }
+        }
+        #detailling-box .btn{
+            width: max-content;
+        }
+    </style>

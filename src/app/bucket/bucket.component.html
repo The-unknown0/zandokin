@@ -1,0 +1,108 @@
+<main id="bucket-main">
+    <section *ngIf="myBucket.length != 0, else nothingToShow">
+        <div *ngFor="let a of myBucket" class="art-from-bucket">
+            <div  class="art-from-bucket-main">
+                <div (click)="detailArticle(a.art_id._id)" onclick="OpenDetail();" class="art-from-bucket-main-flex-item">
+                    <img src="http://127.0.0.1:4100/articles_images/{{a.art_id.picture}}"alt="">
+                </div>
+                <div class="art-from-bucket-main-flex-item">
+                    <div> 
+                        <div class="art-name-and-btn-delete">{{a.art_id.name}} <img (click)="removeFromBucket(a._id)" src="../../assets/icons/icon-delete.png" width="30" height="30"/></div>
+                        <div><small>{{a.date | date}}</small></div>
+                    </div>
+                    <div>
+                        <button class="btn" style="--color: green;">Whatsapp</button>
+                        <button  class="btn" style="--color: #0cf;">Kakola</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <ng-template #nothingToShow>
+        <div>Vous n'avez pas encore ajouté d'article dans votre panier...</div>
+        <button routerLink="" id="btn-home"><img src="../../assets/icons/icon-home.png" alt="" width="25">Retour à l'acceuil</button>
+    </ng-template>
+</main>
+<article *ngIf="isDetailling" id="detail-box">
+    <button class="btn btn-close" (click)="closeDetail()" onclick="CloseDetail()">X</button>
+    <router-outlet></router-outlet>
+</article>
+<div class="alert-setting-done-success" *ngIf="success">
+    <h3 class="title" style="background: green;">Succès</h3>
+    <div class="bg-img">
+        <div class="msg-container">
+            {{message}}
+        </div>
+    </div>
+    <div class="actions-row">
+        <button (click)="reload()" style="--bg : green;">Compris</button>
+    </div>
+</div>
+<div class="alert-setting-done-error" *ngIf="error">
+    <h3 class="title"  style="background: red;">Erreur</h3>
+    <div class="bg-img">
+        <div class="msg-container">
+            {{message}}
+        </div>
+    </div>
+    <div class="actions-row">
+        <button (click)="reload()" style="--bg : red;">Compris</button>
+    </div>
+</div>
+<style>
+    #bucket-main{
+        margin: 10px;
+    }
+    .art-from-bucket{
+        padding: 3px;
+        border-radius: 4px;
+        box-shadow: 0px 0px 5px grey;
+        width: 31%;
+        margin: 5px;
+        height: 100px;
+        display: inline-block;
+    }
+    .art-from-bucket-main{
+        display: flex;
+        height: 100%;
+    }
+    .art-from-bucket-main-flex-item:nth-child(1){
+        width: 35%;
+        height: 100%;
+    }
+    .art-from-bucket-main-flex-item:nth-child(1) img{
+        width: 100%;
+        height: 100%;
+    }
+    .art-from-bucket-main-flex-item:nth-child(2){
+        width: 65%;
+        height: 100%;
+    }
+    .art-name-and-btn-delete{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+    .btn{
+        padding: 3px;
+        border: 1px solid var(--color);
+        background: #fff;
+        border-radius: 4px ;
+        margin: 0px 3px;
+        color: var(--color);
+        transition: ease .4s;
+    }
+    .btn:hover{
+        background: var(--color);
+        color: #fff;
+    }
+    @media (max-width: 480px) {
+        .art-from-bucket{
+            padding: 3px;
+            width: 95%;
+            margin: 5px;
+            height: 100px;
+        }
+    }
+</style>

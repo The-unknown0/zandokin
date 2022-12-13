@@ -1,0 +1,675 @@
+/* Default inputs */
+a{
+    text-decoration: none;
+    color: #0cf;
+}
+.ipt-text{
+    width: 100%;
+    padding: 5px;
+    border-radius: 8px;
+    border: 1px solid black;
+    line-height: 1.42857143;
+    outline: 0;
+}
+.price{
+    padding: 6px;
+    background: #cdca32;
+    border-radius: 7px;
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    border: 1px solid;
+    width: max-content;
+}
+input::placeholder{
+    color: #ee7a0e;
+    text-align: center;
+    opacity: 1;
+}
+.ipt-text:focus{
+    line-height: 1.42857143;
+    outline: #0cf;
+    box-shadow: 0 0 8px #0cf;
+    border: 1px solid #0cf;
+    background: #dadada2d;
+}
+/* Default badge */
+.badge {
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    /* border-right: solid; */
+    cursor: pointer;
+    }
+.badge-item{
+    background: red;
+    color: white;
+    border-radius: 50%;
+    position: relative;
+    padding: 2px;
+    top: -3px;
+    right: -2px;
+}
+
+/* Listtile with badge */
+.icon-list-tile{
+    display: flex;
+    max-height: 25px;
+    align-items: center;
+    font-family: tahoma;
+    transition: ease .4s;
+    border-radius: 7px;
+    margin: 5px;
+    padding: 4px;
+    cursor: pointer;
+    width: max-content;
+    border: 1px solid;
+}
+.icon-list-tile:hover{
+    font-weight: bolder;
+    padding: 4px;
+    box-shadow: 0px 0px 5px grey;
+    border: none;
+}
+.icon-list-tile img{
+    width: 25px;
+    height: 25px;
+    border: 1px solid;
+    border-radius: 50%;
+}
+.icon-list-tile .badge {
+    padding: 3px 7px;
+    font-size: 10px;
+    font-weight: bold;
+    color: var(--color);
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+   }
+.icon-list-tile .badge-item{
+    background: red;
+    color: white;
+    border-radius: 50%;
+    position: relative;
+    padding: 2px;
+    top: -15px;
+    right: -20px;
+}
+.icon-list-tile + .width-100{
+    width: 80%;
+    max-width: 80%;
+    border: none;
+    box-shadow: 0px 0px 1px #fff;
+}
+.icon-list-tile + .width-100:hover{
+    background: #fff;
+    box-shadow: 0px 0px 1px grey;
+}
+.icon-list-tile + .width-100 img{
+    border: none;
+    border-radius: 0px;
+}
+.btn-close{
+    padding: 3px 10px 3px 10px;
+    border: 1px solid red;
+    cursor: pointer;
+    color: red;
+    border-radius:5px;
+    transition: ease 0.4s;
+    background: #fff;
+    margin: 2px 0px 0px 2px;
+}
+.btn-close:hover{
+    background: red;
+    color: #fff;
+}
+@media (max-width: 480px) {
+    .icon-list-tile{
+        height: 20px;
+        transition: ease .4s;
+        margin: 1px;
+        padding: 1px;
+        cursor: pointer;
+        width: 25px;
+        border: 1px solid;
+    }
+}
+/* The header */
+header{
+    max-width: 100%;
+    height: 80px;
+    /* background: grey; */
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+#ct-logo-header{
+    border: none;
+}
+#logo-zando-header{
+    width: 300px;
+    height: 100px;
+}
+#ct-search-bucket-menu-header div{
+    display: flex;
+    justify-content: space-around;
+    max-width: max-content;
+}
+/* User menu from header user icon */
+.user-header-user-menu{
+    width: max-content;
+    background: #dadada;
+    padding: 3px;
+    border: none;
+    border-radius: 8px;
+    position: absolute;
+    top: 11%;
+    right: 15%;
+    box-shadow: 0px 0px 4px bisque;
+    color: #fff;
+    font-size: x-small;
+    display: none;
+    z-index: 10;
+}
+.icon-menu-listTile{
+    width: 20px;
+    padding: 0px;
+    margin: 0px;
+}
+.user-header-user-menu p{
+    display: flex;
+    align-items: center;
+    transition: ease 0.5s;
+    margin-bottom: 5px;
+    cursor: pointer;
+    
+}
+.user-header-user-menu p:hover{
+    font-weight: bold;
+    box-shadow: 0px 0px 4px  #000;
+    border-radius: 5px;
+    padding: 5px;
+}
+.user-header-user-menu p span{
+    margin-right: 5px;
+}
+.app-icon{
+    width: 100px;
+    height: 65px;
+}
+/* The main page */
+main{
+    display: flex;
+}
+/* Left menu */
+#left-menu{
+    width: 25%;
+    height: max-content;
+    position: relative;
+    box-shadow: 0px 0px 5px grey;
+    margin: 5px;
+    border-radius: 8px;
+    background: #ee7a0e;
+    color: #fff;
+    text-align: justify;
+}
+#main-content{
+    width: 70%;
+    height: 100%;
+    margin: 5px auto;
+    overflow: hidden;
+    box-shadow: 0px 0px 5px grey;
+    border-radius: 8px;
+    /* background: linear-gradient(#0cf, #dadada,#dadada,#dadada,#dadada,#dadada,#dadada,#dadada,#dadada ); */
+}
+.bg-home{
+    background: linear-gradient(#0cf, #dadada,#dadada,#dadada,#dadada,#dadada,#dadada,#dadada,#dadada );
+}
+/* footer section */
+#section-8{
+    height: 250px;
+    color: #fff;
+    background: #0cf;
+    width: 100%;
+    margin: 0px auto;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+#section-8 h3{
+    margin: 14px;
+}
+.section-8-flex-ct{
+    display: flex;
+    justify-content: space-around;
+    margin: 25px;
+    flex-wrap: wrap;
+}
+.section-8-flex-ct article{
+    width: 25%;
+}
+.section-8-flex-ct article div{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+#section-8 .reseau-icon{
+    width: 30px;
+    height: 30px;
+}
+#section-8 .app-icon{
+    width: 100px;
+    height: 65px;
+}
+footer{
+    padding: 10px;
+    text-align: center;
+    background: #000522;
+    color: #fff;
+}
+/* The header menu */
+#header-menu{
+    font-family: tahoma;
+    width: 22%;
+    height: 100%;
+    background: white;
+    position: fixed;
+    top: 0%;
+    right: 0%;
+    border-left: solid 1px;
+    /* display: none; */
+    z-index: 25;
+}
+#header-menu .icon-close-menu{
+    width: 35px;
+    margin: 5px;
+    cursor: pointer;
+}
+#header-menu #ct-left-menu section:nth-child(1){
+    width: 100%;
+    height: max-content;
+    text-align: center;
+}
+#header-menu #ct-left-menu section:nth-child(2){
+    width: 100%;
+    height: max-content;
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+}
+#header-menu #ct-left-menu section:nth-child(3){
+    width: 100%;
+    height: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+#menu-btn-plus{
+    width: 2em;
+    height: 2em;
+    background: #0cf;
+    border-radius: 50%;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    transition: ease .5s;
+}
+#menu-btn-plus:hover{
+    box-shadow: 0px 0px 5px #00ccff83, 0px 0px 5px #0cf;
+}
+#header-menu section main {
+    padding: 0px;
+    margin: 5px;        
+}
+.icon-category-menu{
+    width: 2.5em;
+    height: 2.5em;
+    background: #fff;
+    border-radius: 50%;
+    margin: 2px;
+    display: inline-block;
+    border: solid 1px;
+}
+#header-menu section main div{
+    transition: ease 0.5s;
+    text-align: center;
+    background: var(--bg);
+    background-size: cover;
+}
+#header-menu section main div:hover{
+    box-shadow: 0px 0px 4px black;
+    border: none;
+    padding: 0.2em;
+}
+.icon-menu-listTile{
+    width: 25px;
+    padding: 0px;
+    margin: 0px;
+}
+#main-section-menu-listTile p{
+    display: flex;
+    align-items: center;
+    transition: ease 0.5s;
+    margin-bottom: 5px;
+    cursor: pointer;
+    width: 90%;
+}
+#main-section-menu-listTile p a{
+    color: #000;
+    text-decoration: none;
+}
+#main-section-menu-listTile p:hover{
+    font-weight: bold;
+    box-shadow: 0px 0px 4px  #000;
+    border-radius: 5px;
+    padding: 5px;
+}
+#main-section-menu-listTile p span{
+    margin-right: 5px;
+}
+.float-add-btn{
+    padding: 12px;
+    background: #0cf;
+    color: #fff;
+    font-size: xx-large;
+    border-radius: 50%;
+    position: fixed;
+    right: 5%;
+    bottom: 10%;
+    z-index: 5;
+    cursor: pointer;
+    width: 40px;
+    text-align: center;
+    box-shadow: 0px 0px 7px grey;
+}
+.in-add-article{
+    opacity: .1;
+}
+/* Responsiv */
+@media (min-width: 480px) {
+    #header-menu, #btn-menu{
+        display: none;
+        visibility: hidden;
+    }
+}
+@media (max-width: 1199px) {
+    .ct-art-from-cat{
+        width: 43%;
+        margin: 5px 2px;
+    }
+    .art-from-cat-label-for-name{
+        max-height: 20px;
+        font-size: 16px;
+        padding: 0px;
+        width: 100%;
+    }
+    .ct-hot-selling{
+        width: 45%;
+        font-size: 13px;
+        padding: 5px;
+        height: max-content;
+    }
+    .ct-solde{
+        padding: 5px;
+        margin: 5px;
+    }
+    .now-price{
+        padding: 5px;
+        font-size: 13px;
+        width: 50%;
+    }
+    .old-price{
+        padding: 5px;
+        font-size: 13px;
+        width: 50%;
+    }
+    .left-solde-price-ct{
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+}
+@media (max-width: 979px) {
+    .ct-art-from-cat{
+        width: 43%;
+        margin: 5px 2px;
+    }
+    .art-from-cat-label-for-name{
+        max-height: 16px;
+        font-size: 12px;
+        padding: 0px;
+        width: 100%;
+    }
+    .ct-hot-selling{
+        width: 45%;
+        font-size: 13px;
+        padding: 5px;
+        height: max-content;
+    }
+    .ct-solde{
+        padding: 5px;
+        margin: 5px;
+    }
+    .now-price{
+        padding: 5px;
+        font-size: 13px;
+        width: 50%;
+    }
+    .old-price{
+        padding: 5px;
+        font-size: 13px;
+        width: 50%;
+    }
+    .left-solde-price-ct{
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+}
+@media (max-width: 767px) {
+    .price{
+        padding: 2px;
+        font-size: 14px;
+    }
+    header{
+        width: 100%;
+        padding: 0px;
+    }
+    #logo-zando-header{
+        width: 180px;
+        height: 60px;
+    }
+    #header-menu{
+        width: 80%;
+        display: none;
+    }
+    .left-menu-list-tile{
+        font-size: 12px;
+        padding: 0px;
+    }
+    .left-menu-list-tile-icon{
+        width: 30px;
+        height: 30px;
+        margin: 0px 2px 0px 0px;
+    }
+    main{
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+    }
+    #mc-ct-flex{
+        margin: 5px auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        font-size: 14px;
+    }
+    #main-content{
+        width: 70%;
+        margin: 0px;
+    }
+    .three-latest-ct-item{
+        width: 45%;
+        margin: 5px;
+    }
+    #three-latest-ct-item-title{
+        font-size: 30px;
+        color: #fff;
+    }
+    .ct-ct-category{
+        width: 95%;
+        padding: 5px;
+        justify-content: center;
+    }
+    .art-from-cat-label-for-name{
+        width: 96%;
+        max-height: 17px;
+        overflow: hidden;
+        position: relative;
+        text-align: center;
+    }
+    .ct-art-from-cat{
+        width: 43%;
+        margin: 5px;
+    }
+    .see-more-catect-category{
+        height: 120px;
+    }
+    .ct-hot-selling{
+        width: 98%;
+        color: #fff;
+        font-family: sans-serif;
+        font-weight: normal;
+        border-radius: 8px;
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        background: #fff;
+        /* margin: 0px 2px; */
+        height: max-content;
+    }
+    .ct-solde{
+        background: white; /* linear-gradient(to left bottom, #0cf, orangered); */
+        background-size: cover;
+        width: 98%;
+        border-radius: 7px;
+        height: max-content;
+        margin: 5px;
+    }
+    .now-price{
+        padding: 1px;
+        font-size: 13px;
+        width: 50%;
+    }
+    .old-price{
+        padding: 1px;
+        font-size: 13px;
+        width: 50%;
+    }
+    .left-solde-price-ct{
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+    #section-8{
+        height: max-content;
+        color: #fff;
+        background: #0cf;
+        width: 95%;
+        margin-bottom: -5px;
+    }
+    #section-8 h3{
+        margin: 8px;
+    }
+    .section-8-flex-ct{
+        display: flex;
+        flex-wrap: wrap;
+        margin: 5px;
+        justify-content: start;
+    }
+    .section-8-flex-ct article{
+        width: 50%;
+        font-size: larger;
+    }
+    .section-8-flex-ct article div{
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+    }
+    #section-8 .reseau-icon{
+        width: 30px;
+        height: 30px;
+    }
+    #section-8 .app-icon{
+        width: 100px;
+        height: 45px;
+    }
+}
+@media (max-width: 480px) {
+    .price{
+        padding: 2px;
+        font-size: 14px;
+    }
+    header{
+        width: 100%;
+        padding: 0px;
+    }
+    #logo-zando-header{
+        width: 180px;
+        height: 60px;
+    }
+    #ct-search-bucket-menu-header div{
+        display: none;
+    }
+    #left-menu{
+        display: none;
+    }
+    #header-menu{
+        width: 80%;
+        display: none;
+    }
+    #inpt-search{
+        display: none;
+    }
+    #header-menu #ct-left-menu section:nth-child(3){
+        display: none;
+    }
+    .user-header-user-menu{
+        top: 65px;
+        right: 1%;
+        font-size: small;
+    }
+    main{
+        width: 100%;
+        max-width: 100%;
+        display: block;
+    }
+    #mc-ct-flex{
+        margin: 5px auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        font-size: 14px;
+    }
+    #main-content{
+        width: 95%;
+        height: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .section-8-flex-ct article{
+        width: 50%;
+        font-size: small;
+    }
+    .section-8-flex-ct article div{
+        display: flex;
+        align-items: center;
+        font-size: 11px;
+    }
+}

@@ -1,0 +1,79 @@
+<style>
+    #main-title{
+        display: flex;
+        align-items: center;
+        margin: 5px;
+        margin-bottom: 15px;
+    }
+</style>
+<h3 id="main-title"><img src="../../assets/icons/icon-settings-articles.png" width="30" alt="">Articles/{{what}}/{{id}}></h3>
+<main id="articles-main">
+    <article *ngFor="let article of articles" class="ct-articles" id="{{article.picture}}">
+        <div class="ct-art-name"> {{article.name}} </div>
+        <div (click)="detailArticle(article._id)" onclick="OpenDetail()" class="ct-art-picture">
+            <img src="http://127.0.0.1:4100/articles_images/{{article.picture}}" alt="">
+        </div>
+        <div class="ct-art-btn">
+            <button class="btn-detail" (click)="detailArticle(article._id)" onclick="OpenDetail()" style="--color: grey;">Details</button>
+            <button style="--color: green;">Whatsapp</button>
+            <button  style="--color: #0cf;">Kakola</button>
+        </div>
+    </article>
+    <br><br><br>
+    <div class="articles-ct-more">
+        <h4 class="">Les autres catégories</h4>
+        <br>
+        <div class="ct-ct--list-tile">
+            <div onclick="window.scrollTo(0,0)" *ngFor="let ct of categories" class="ct-list-tile" (click)="changecategory('category',ct.id)">
+                <img src="assets\icons\category-{{ct.id}}.png" class="ct-list-tile-img">
+                <div class="ct-list-tile-title">{{ct.name}}</div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="articles-ct-more">
+        <h4>Voir aussi...</h4>
+        <small>3 ya sikaa</small>
+        <div class="scoll-100">
+            <div class="articles-ct-three-latest">
+                <div *ngFor="let article of latests" class="three-latest-ct-item" (click)="detailArticle(article._id)" onclick="OpenDetail()">
+                    <div class="three-latest-articles-flex-items">
+                        <img src="http://127.0.0.1:4100/articles_images/{{article.picture}}" alt="" class="three-latest-article-image">
+                    </div>
+                    <div class="three-latest-articles-flex-items">
+                        <h5>{{article.name}}</h5>
+                        <div id="details">
+                            <small>{{article.details}}</small>
+                        </div>
+                        <div class="price">
+                            <h5 class="price">{{article.price}}{{article.devise}}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <small>Prix ekiti...</small>
+        <div class="scoll-y-100">
+            <div class="articles-ct-solded">
+                <div class="items-first-ctn-flex-ct-solde" *ngFor="let sold of solded" (click)="detailArticle(sold._id)"  onclick="OpenDetail()">
+                    <div>
+                        <img src="http://127.0.0.1:4100/articles_images/{{sold.picture}}" alt="">
+                    </div>
+                    <div class="left-solde-price-ct">
+                        <h6> {{sold.name}} </h6>
+                        <p>
+                            <span class="old-price">{{sold.old_price}}{{sold.devise}}</span>
+                            <span class="now-price">{{sold.price}}{{sold.devise}}<span>&#11015;</span></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <button routerLink="" id="btn-home"><img src="../../assets/icons/icon-home.png" alt="" width="25">Retour à l'acceuil</button>
+</main>
+<article *ngIf="isDetailling" id="detail-box">
+    <button class="btn btn-close" (click)="closeDetail()" onclick="CloseDetail()">X</button>
+    <router-outlet></router-outlet>
+</article>

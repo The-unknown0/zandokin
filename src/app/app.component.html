@@ -1,0 +1,61 @@
+<app-header></app-header>
+<div class="user-header-user-menu">
+  <p onclick="$('.user-header-user-menu').slideToggle(0, $('#log-box'). show())" routerLink="log-in">
+      <span><img src="assets/icons/icon-log-in.png" alt="" class="icon-menu-listTile"></span>
+      Se connecter
+  </p>
+  <p onclick="$('.user-header-user-menu').slideToggle(0)" routerLink="sign-up">
+      <span><img src="assets/icons/icon-sign-up.png" alt="" class="icon-menu-listTile"></span>
+      S'inscrire
+  </p>
+</div>
+<main>
+  <nav id="left-menu">
+    <app-left-menu></app-left-menu>
+  </nav>
+  <section onclick="$('#header-menu').slideUp(10)" id="main-content" [class.bg-home]="">
+    <router-outlet></router-outlet>
+  </section>
+  </main>
+<section id="section-8">
+  <h3>Nous avons concu Zandokin avec beaucoup d'amour</h3>
+  <section class="section-8-flex-ct">
+      <article>
+          <h4>Contact</h4>
+          <div><img src="assets/icons/icon-gmail.png" class="reseau-icon" alt="">zk.contact@gmail.com</div>
+          <div><img src="assets/icons/icon-whatsapp.png" class="reseau-icon" alt="">+243 813 264 459</div>
+          <br>
+          <h4>Call center</h4>
+          <div id="call-center">&#128222; 777 888 999</div>
+      </article>
+      <article>
+          <h4>Suivez-nous</h4>
+          <div><img src="assets/icons/icon-fb.png" class="reseau-icon" alt="">Zandokin Inc</div>
+          <div><img src="assets/icons/icon-twitter.png" class="reseau-icon" alt="">Zandokin officiel</div>
+          <div><img src="assets/icons/icon-linkedin.png" class="reseau-icon" alt="">Zandokin Inc</div>
+          <div><img src="assets/icons/icon-ig.png" class="reseau-icon" alt="">Zandokin 2707</div>
+      </article>
+      <article>
+          <h4>Pour mobile</h4>
+          <img src="assets/icons/icon-app_store_black.png" class="app-icon" alt=""><br>
+          <img src="assets/icons/icon-play_store_black.png" class="app-icon" alt=""><br>
+      </article>
+      <article>
+          <h4>A propos de nous</h4>
+          <div onclick="window.scrollTo(0,0)"><img src="assets/icons/icon-sponsorize.png" class="reseau-icon" alt=""> sponsoriser Zandokin</div>
+          <div  onclick="window.scrollTo(0,0)" routerLink="faqs"><img src="assets/icons/icon - faqs.png" class="reseau-icon" alt=""> Questions fréquentes </div>
+          <div onclick="window.scrollTo(0,0)" routerLink="policy" ><img src="assets/icons/icon-cu.png" class="reseau-icon" alt=""> Règles d'utilisations </div>
+          <div onclick="window.scrollTo(0,0)"><img src="assets/icons/icon - feedback.png" class="reseau-icon" alt=""> Envoyez un feedback </div>
+      </article>
+  </section>
+</section>
+<footer>
+  <article>
+      <h5>Copy right <span style="color: #0cf;">Zando</span><span style="color: #000;">Kin</span>&circledR; 2022</h5>
+      <div class="text-red">Tous les droits sont reservés</div>
+  </article>
+</footer>
+<div class="float-add-btn" routerLink="add-article" routerLinkActive="in-add-article">+</div>
+<div id="header-menu" onclick="$('#header-menu').hide();">
+    <app-left-menu></app-left-menu>
+</div>

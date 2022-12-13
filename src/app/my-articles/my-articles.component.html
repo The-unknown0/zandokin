@@ -1,0 +1,105 @@
+<style>
+    #my-article-main{
+        margin: 10px;
+    }
+    #my-article-main section:nth-child(1){
+        padding: 10px;
+    }
+    .article-list-tile{
+        padding: 12px;
+        box-shadow: 0px 0px 6px grey;
+        border-radius: 8px;
+        margin: 5px;
+        display: inline-block;
+        transition: ease .5s;
+    }
+    .article-list-tile:hover{
+        box-shadow: 0px 0px 6px black;
+        background: #eee;
+    }
+    .article-list-tile main{
+        display: flex;
+    }
+    .ct-img{
+        margin-right: 6px;
+    }
+    .ct-title-and-btns{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .ct-btns{
+        display: flex;
+        align-items: center;
+    }
+    .btn-update{
+        padding: 5px;
+        border: none;
+        background: #fff;
+        color: #ee7a0e;
+        height: 25px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+    }
+    .ct-switch{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+</style>
+<div id="my-articles-main">
+    <section *ngIf="myArticles.length != 0, else nothingToShow">
+    <div class="article-list-tile" *ngFor="let article of myArticles">
+        <main>
+            <div class="ct-img">
+                <img src="http://127.0.0.1:4100/articles_images/{{article.picture}}" width="80" height="80" alt="">
+            </div>
+            <div>
+                <div class="ct-title-and-btns">
+                    <div>{{article.name}}</div>
+                </div>
+                <div class="ct-btns ">
+                    <div (click)="update(article._id)" class="btn-update">Modifier <img  src="../../assets/icons/icon-edit.png" width="30" height="30"/></div> 
+                </div>
+                <div class="ct-switch">
+                    <span>disponible</span>
+                    <label class="switch">
+                        <input (change)="setUnavailable(article._id, $event)" [checked]="article.available" type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+        </main>  
+    </div>
+    </section>
+    <ng-template #nothingToShow>
+        <main class="flex-center">
+            <div>Vous n'avez pas encore ajouté d'article...</div>
+            <button routerLink="add-article" class="btn-add-article-orange">Ajouter un article</button>
+            <button routerLink="" id="btn-home"><img src="../../assets/icons/icon-home.png" alt="" width="25">Retour à l'acceuil</button>
+        </main>
+</ng-template>
+</div>
+<div class="alert-setting-done-success" *ngIf="success">
+    <h3 class="title" style="background: green;">Succès</h3>
+    <div class="bg-img">
+        <div class="msg-container">
+            {{message}}
+        </div>
+    </div>
+    <div class="actions-row">
+        <button (click)="gotIt()" style="--bg : green;">Compris</button>
+    </div>
+</div>
+<div class="alert-setting-done-error" *ngIf="error">
+    <h3 class="title"  style="background: red;">Erreur</h3>
+    <div class="bg-img">
+        <div class="msg-container">
+            {{message}}
+        </div>
+    </div>
+    <div class="actions-row">
+        <button (click)="gotIt()" style="--bg : red;">Compris</button>
+    </div>
+</div>

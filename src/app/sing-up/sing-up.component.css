@@ -1,0 +1,194 @@
+.text-green{
+    color: green;
+}
+#sign-up-section{
+    border-radius: 9px;
+}
+#sign-up-section main{
+    margin: 15px auto;
+    width: 90%;
+    /* height: 350px; */
+    display: block;
+}
+*:disabled{
+    opacity: .4;
+}
+#main-title{
+    display: flex;
+    align-items: center;
+}
+#main-title img{
+    margin-right: 7px;
+}
+#sign-up-section main article{
+    width: 100%;
+    height: max-content;
+    display: flex;
+}
+#sign-up-section main article:nth-child(1){
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.ct-rounded-indicator{
+    display: inline-block;
+    text-align: center;
+}
+.rounded-indicator{
+    width: 1.5em;
+    height: 1.5em;
+    border: 2px solid black;
+    text-align: center;
+    border-radius: 50%;
+    margin: 0px 2px;
+}
+.line-indicator{
+    width: 15px;
+    height: 4px;
+    background: #000;
+}
+.active{
+    background: #0cf;
+    color: #fff;
+}
+#sign-up-article-2{
+    justify-content: space-between;
+    align-items: center;
+    display: none;
+}
+.box-astuce{
+    border: 1px solid;
+    height: 200px;
+    width: 45%;
+    border-radius: 10px;
+}
+.box-astuce-main{
+    margin: 5px;
+    text-align: justify;
+}
+.box-astuce h4{
+    background: #ee7a0e;
+    color: #fff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 4px;
+}
+.ct-form-control{
+    width: 50%;
+}
+.sign-up-form-control{
+    display: block;
+    border: 1px solid;
+    outline: 0;
+    border-radius: 7px;
+    padding: 6px;
+    width: 90%;
+    margin: 0px 0px 5px 0px;
+}
+.sign-up-form-control[type="file"]{
+    display: block;
+    border: 1px solid;
+    outline: 0;
+    border-radius: 7px;
+    width: 90%;
+    margin: 0px 0px 5px 0px;
+    padding: 0px 7px 0px 0px;
+}
+::-webkit-file-upload-button{
+    width: max-content;
+    margin: 0px;
+    padding: 6px;
+    border: none;
+    border-right: 1px solid;
+}
+.input-group{
+    display: flex;
+    margin: 0px 0px 5px 0px;
+}
+.input-group button{
+    padding: 6px;
+    border-bottom-left-radius: 7px;
+    border-top-left-radius: 7px;
+    border: none;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+.input-group input{
+    outline: 0;
+    border-bottom-right-radius: 7px;
+    border-top-right-radius: 7px;
+    border: none;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    width: 80%;
+}
+.sign-up-article-3-btn{
+    justify-content: flex-end;
+    align-items: center;
+}
+.sign-up-article-3-btn button{
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    background: var(--bg);
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    margin: 0px 0px 0px 10px;
+}
+.ct-review-img-user{
+    width: 100px;
+    height: 100px;
+    margin: 0px auto;
+}
+.ct-review-img-user img{
+    width: 100%;
+    height: 100%;
+}
+.sign-up-ct-revue-form-control{
+    background: #dadada;
+    display: block;
+    border: 1px solid;
+    outline: 0;
+    border-radius: 7px;
+    padding: 6px;
+    width: 90%;
+    margin: 0px 0px 5px 0px;
+    font-weight: bolder;
+    text-align: center;
+    font-size: 18px;
+}
+.sign-up-ct-revue-form-control::placeholder{
+    font-weight: bolder;
+}
+@media (max-width: 1199px) {
+    
+}
+@media (max-width: 979px) {
+    
+}
+@media (max-width: 767px) {
+    .box-astuce{
+        font-size: small;
+    }
+}
+@media (max-width: 480px) {
+    .box-astuce{
+        display: none;
+    }
+    .ct-form-control{
+        width: 100%;
+    }
+    .ct-rounded-ind{
+        width: 100%;
+    }
+    #sign-up-article-6{
+        flex-wrap: wrap;
+    }
+}

@@ -1,0 +1,176 @@
+<section id="add-article">
+    <h3 id="main-title"><img src="assets/icons/icon-add-article.png" width="30" alt="">Ajouter un nouveau article</h3>
+    <main id="add-article-main">
+        <div class="w-100">
+            <article>
+                <form #addArticleForm="ngForm">
+                <label for=""><span class="text-red">*</span>Nom de l'article</label>
+                <div *ngIf="name.touched && name.invalid">
+                    <small *ngIf="name.getError('required')" class="text-red">Veuillez remplir ce champ s'il vous plait</small>
+                    <small *ngIf="name.getError('pattern')" class="text-red">le nom doit commencer par des lettres (éviter autant que possible les caractères spéciales) <span class="text-green">Détergent TOUT CLEAN </span></small>
+                </div>
+                <input class="form-control" [class.valid]="name.touched && name.valid" #name="ngModel" required pattern="^[a-zA-Z]+.*" name="artName"  [(ngModel)]="artName" type="text">
+                <label for=""><span class="text-red">*</span>Prix & dévise (Fc/$) </label>
+                <div *ngIf="price.touched && price.invalid">
+                    <small *ngIf="price.getError('required')" class="text-red">Veuillez remplir ce champ s'il vous plait (Le prix est obligatoire)</small>
+                    <small *ngIf="price.getError('pattern')" class="text-red">Entrez un prix valide (sans caractères spéciales, sans espace, sans point.) <span class="text-green">2.000</span></small>
+                </div>
+                <div class="input-group">
+                    <select (change)="getDevise($event)" required #device type="text" class="input-group-elt">
+                        <option value="">Selectionner la dévise</option>
+                        <option value="$">Dollars ($)</option>
+                        <option value="Fc">Franc congolais (FC)</option>
+                    </select>
+                    <input class="input-group-elt" #price="ngModel" [class.valid]="price.touched && price.valid" required pattern="[0-9]*" name="artPrice"  [(ngModel)]="artPrice" type="text">
+                </div>
+                <label for=""><span class="text-red">*</span>Photo</label>
+                <div *ngIf="(picture.touched) && (pictureError || picture.invalid) ">
+                    <small *ngIf="picture.getError('required')" class="text-red">Il est obligatoire qu'un article ait une photo</small>
+                    <small *ngIf="pictureError" class="text-red">Selectionnez une photo au bon format (png, jpeg, jpg et gif) <span class="text-green">ex. photo.png</span></small>
+                </div>
+                <input #picture="ngModel" required (change)="getPicture($event)" name="artPicture" [(ngModel)]="selectedPicture" type="file" class="form-control">
+                <label for=""><span class="text-red">*</span>Catégorie</label>
+                <div *ngIf="category.touched && category.invalid">
+                    <small *ngIf="category.getError('required')" class="text-red">Veuillez choisir une catégorie s'il vous plait</small>
+                </div>
+                <select #category="ngModel" required  name="artCategory"  [(ngModel)]="artCategory" type="text" class="form-control">
+                    <option *ngFor="let category of categories" value="{{category.id}}" > {{category.name}} </option>
+                </select>
+                <label for=""><span class="text-red">*</span>Autres details</label>
+                <div *ngIf="details.touched && details.invalid">
+                    <small *ngIf="details.getError('required')" class="text-red">Veuillez ajouter un brief detail à votre produit s'il vous plait</small>
+                </div>
+                <textarea rows="4" #details="ngModel" required name="artDetails"  [(ngModel)]="artDetails" type="text" class="form-control"></textarea>
+                <div class="text-right">
+                    <button (click)="publish()" [disabled]="addArticleForm.form.invalid || isLoading || pictureError || device.value == '' || artCategory == ''" id="btn-sell"><span>Poster</span><div *ngIf="isLoading" class="spinner-border" style="--color: #fff;"></div></button>
+                </div>
+            </form>
+            </article>
+            <article></article>
+        </div>
+    </main>
+</section>
+<style>
+    #add-article-main{
+        margin: 15px auto;
+        width: 90%;
+        box-shadow: 0px 0px 6px grey;
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+        border-radius: 10px;
+    }
+    .w-100{
+        width: 100%;
+        margin: 0px auto;
+    }
+    .text-right{
+        text-align: right;
+        width: 90%;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .text-green{
+        color: green;
+    }
+    #main-title{
+        display: flex;
+        align-items: center;
+        margin: 5px;
+    }
+    #btn-sell{
+        padding: 10px;
+        border: 1px solid #0cf;
+        border-radius: 7px;
+        background: #fff;
+        color: #0cf;
+        transition: ease .6px;
+        display: flex;
+        justify-content: center;
+        justify-self: flex-end;
+    }
+    #btn-sell:hover{
+        border: none;
+        background: #0cf;
+        color: #fff;
+        box-shadow: 0px 0px 2px grey;
+    }
+    #btn-sell span{
+        margin-right: 10px;
+    }
+    .form-control{
+        display: block;
+        border: none;
+        outline: 0;
+        border-radius: 7px;
+        padding: 6px;
+        width: 90%;
+        margin: 5px 0px 10px 0px;
+        box-shadow: 0px 0px 3px grey;
+        background: #fff
+    }
+    .form-control[type="file"]{
+        display: block;
+        border: none;
+        outline: 0;
+        border-radius: 7px;
+        width: 90%;
+        margin: 5px 0px 10px 0px;
+        padding: 0px 7px 0px 0px;
+    }
+    ::-webkit-file-upload-button{
+        width: max-content;
+        margin: 0px;
+        padding: 6px;
+        border: none;
+        border-right: 1px solid;
+    }
+    .input-group{
+        display: flex;
+        margin: 5px 0px 10px 0px;
+        width: 90%;
+    }
+    .input-group .input-group-elt:nth-child(1){
+        padding: 6px;
+        outline: none;
+        border-bottom-left-radius: 7px;
+        border-top-left-radius: 7px;
+        border-right: 1px solid;
+    }
+    .input-group .input-group-elt:nth-child(2){
+        outline: 0;
+        border-bottom-right-radius: 7px;
+        border-top-right-radius: 7px;
+        border: none;
+        width: 80%;
+        text-align: center;
+    }
+    .valid {
+        font-weight: bold;
+    }
+    textarea{
+        resize: none;
+    }
+</style>
+<div class="alert-setting-done-success" *ngIf="success">
+    <h3 class="title">Succès</h3>
+    <div class="bg-img">
+        <div class="msg-container">
+            {{message}}
+        </div>
+    </div>
+    <div class="actions-row">
+        <button (click)="reload()" style="--bg : green;">Compris</button>
+    </div>
+</div>
+<div class="alert-setting-done-error" *ngIf="error">
+    <h3 class="title">Erreur</h3>
+    <div class="bg-img">
+        <div class="msg-container">
+            {{message}}
+        </div>
+    </div>
+    <div class="actions-row">
+        <button (click)="reload()" style="--bg : red;">Compris</button>
+    </div>
+</div>

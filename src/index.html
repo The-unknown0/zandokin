@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Zandokin</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="assets/icons/Header.png">
+  <script src="assets/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <app-root></app-root>
+</body>
+<script>
+  function OpenDetail() {
+      $('#opac').css("opacity", 0.1);
+      $('#detailling-box').css("opacity", 1).show();
+      
+      setTimeout(() => {
+         $('.detail-box-flex-ct').show().css("display", "flex"); 
+         $('.detailling-spinner-ct').hide(); 
+      }, 500);
+  }
+  function CloseDetail() {
+      $('#opac').css("opacity", 1);
+      $('#detailling-box').css("opacity", 1).hide();
+      $('.detail-box-flex-ct').css("display", "none"); 
+      $('.detailling-spinner-ct').show(); 
+  }
+  var index = 0;
+  function animatePub() {
+    index -= 320;
+    if (index < -640) {
+      index = 0;
+    }
+    $('#ct-left-menu section:nth-child(3) main').css("transform", `translateY(${index}px)`)
+  }
+  setInterval(()=>{
+    animatePub();
+    }, 7000)
+</script>
+</html>

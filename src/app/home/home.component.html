@@ -1,0 +1,172 @@
+<section id="mc-ct-flex">
+    <section class="ct-3-latests">
+        <div class="three-latest-ct-item" id="three-latest-ct-item-title-ct">
+            <h1 id="three-latest-ct-item-title">3 Ya <br>Sikaaa!</h1>
+        </div>
+        <div *ngFor="let article of latests" class="three-latest-ct-item" (click)="detailArticle(article._id)" onclick="OpenDetail()">
+            <div class="three-latest-articles-flex-items">
+                <img src="http://127.0.0.1:4100/articles_images/{{article.picture}}" alt="" class="three-latest-article-image">
+            </div>
+            <div class="three-latest-articles-flex-items">
+                <h5>{{article.name}}</h5>
+                <h5 class="price">{{article.price}}{{article.devise}}</h5>
+                <h5 class="three-latest-detail-btn">Details</h5>
+            </div>
+        </div>
+    </section>
+</section>
+<section id="mc-ct-flex">
+    <section class="ct-ct-category ct-category-738px" style="--bg: url('icons/logo categ-sport.png');">
+        <div *ngFor="let article of sports" class="ct-art-from-cat" (click)="detailArticle(article._id)" onclick="OpenDetail();">
+            <img src="http://127.0.0.1:4100/articles_images/{{article.picture}}" alt="" class="art-from-cat-img">
+            <div class="art-from-cat-label-for-name">{{article.name}}</div>
+        </div>
+        <div class="voir-plus-btn-ct" onclick="window.scrollTo(0,0)" (click)="goToArticles('category', 'sport')">Voir tout <img src="../../assets/icons/next-icon.png" alt="" width="20"></div>
+    </section>
+    <section class="ct-ct-category ct-category-738px" style="--bg: url('../assets/icons/logo\ categ-telephone.png');">
+        <div  *ngFor="let article of phones" class="ct-art-from-cat" (click)="detailArticle(article._id)" onclick="OpenDetail();">
+            <img src="http://127.0.0.1:4100/articles_images/{{article.picture}}" alt="" class="art-from-cat-img">
+            <div class="art-from-cat-label-for-name">{{article.name}}</div>
+        </div>
+        <div class="voir-plus-btn-ct" onclick="window.scrollTo(0,0)" (click)="goToArticles('category', 'téléphone')">Voir tout <img src="../../assets/icons/next-icon.png" alt="" width="20"></div>
+    </section>
+</section>
+<section id="mc-ct-flex">
+    <section class="ct-hot-selling">
+        <div class="ct-hot-selling-item">
+            <div class="detail-side">
+                <h4>Nom de l'article</h4>
+                <h4>some detail about the article for improving user experience</h4>
+                <button  class="hot-selling-detail-btn">
+                    Detailler
+                </button>
+            </div>
+            <div>
+                <img src="assets/articles/zk_img_2022103_26.jpg" alt="" class="hot-selling-article-image">
+            </div>
+        </div>
+        <div class="hot-selling-indicator" (click)="goToArticles('category', 'téléphones')">
+            <h2>Les deux articles les plus vendus.</h2> 
+            <img src="../../assets/icons/next-icon.png" alt="" width="20">
+        </div>
+        <div class="ct-hot-selling-item">
+            <div>
+                <img src="assets/articles/zk_img_2022103_18.jpg" alt="" class="hot-selling-article-image">
+            </div>
+            <div class="detail-side">
+                <h4>Nom de l'article</h4>
+                <h4>some detail about the article for improving user experience</h4>
+                <button class="hot-selling-detail-btn">
+                    Detailler
+                </button>
+            </div>
+        </div>
+    </section>
+    <section class="ct-solde">
+        <div class="solded-indicator" (click)="goToArticles('category', 'téléphones')">
+            <h2>EKITI TALOOOOO !</h2>
+            <img src="../../assets/icons/next-icon.png" alt="" width="20">
+        </div>
+        <main>
+            <div class="ct-solde-flex-items" >
+                <div class="items-first-ctn-flex-ct-solde" *ngFor="let sold of solded" (click)="detailArticle(sold._id)"  onclick="OpenDetail()">
+                    <div>
+                        <img src="http://127.0.0.1:4100/articles_images/{{sold.picture}}" alt="">
+                    </div>
+                    <div class="left-solde-price-ct">
+                        <h6> {{sold.name}} </h6>
+                        <p>
+                            <span class="old-price">{{sold.old_price}}{{sold.devise}}</span>
+                            <span class="now-price">{{sold.price}}{{sold.devise}}<span>&#11015;</span></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="ct-solde-flex-items">
+                <p>Addidas-lamda</p>
+                <img src="assets/articles/zk_img_2022103_14.jpg" alt="">
+                <p class="solde-price-ct">
+                    <span class="old-price">60$</span>
+                    <span class="now-price">35$ <span>&#11015;</span></span>
+                </p>
+            </div>
+        </main>
+        <div class="voir-plus-btn-ct" onclick="window.scrollTo(0,0)" (click)="goToArticles('category', 'téléphones')">Voir plus <img src="../../assets/icons/next-icon.png" alt="" width="20"></div>
+    </section>
+</section>
+<section id="mc-ct-flex">
+    <section class="ct-ct-category ct-category-738px" style="--bg: url('../../assets/icons/logo\ categ-vetement.png');">
+        <div *ngFor="let article of vetements" (click)="detailArticle(article._id)" class="ct-art-from-cat" onclick="OpenDetail();">
+            <img src="http://127.0.0.1:4100/articles_images/{{article.picture}}" alt="" class="art-from-cat-img">
+            <div class="art-from-cat-label-for-name">{{article.name}}</div>
+        </div>
+        <div class="voir-plus-btn-ct" onclick="window.scrollTo(0,0)" (click)="goToArticles('category', 'vetements')">Voir tout <img src="../../assets/icons/next-icon.png" alt="" width="20"></div>
+    </section>
+    <section class="ct-ct-category ct-category-738px" style="--bg: url('../assets/icons/logo\ categ-bijoux.png');">
+        <div *ngFor="let article of bijoux" (click)="detailArticle(article._id)" class="ct-art-from-cat" onclick="OpenDetail();">
+            <img src="http://127.0.0.1:4100/articles_images/{{article.picture}}" alt="" class="art-from-cat-img">
+            <div class="art-from-cat-label-for-name">{{article.name}}</div>
+        </div>
+        <div class="voir-plus-btn-ct" onclick="window.scrollTo(0,0)" (click)="goToArticles('category', 'bijoux')">Voir tout <img src="../../assets/icons/next-icon.png" alt="" width="20"></div>
+    </section>
+</section>
+<section id="mc-ct-flex">
+    <section class="ct-ct-category ct-see-more-catect-category">
+        <div onclick="window.scrollTo(0,0)" class="see-more-catect-category" (click)="goToArticles('category', 'photographie')">
+            <img src="assets/icons/logo categ-photographie.png" alt="" class="art-from-cat-img">
+            <div class="art-from-cat-label-for-name">Photographie</div>
+        </div>
+        <div onclick="window.scrollTo(0,0)" class="see-more-catect-category" (click)="goToArticles('category', 'bricolage')">
+            <img src="assets/icons/category-brico.png" alt="" class="art-from-cat-img">
+            <div class="art-from-cat-label-for-name">Bricolage</div>
+        </div>
+        <div onclick="window.scrollTo(0,0)" class="see-more-catect-category" (click)="goToArticles('category', 'accessoires')">
+            <img src="assets/icons/category-accessoires.png" alt="" class="art-from-cat-img">
+            <div class="art-from-cat-label-for-name">Accessoires</div>
+        </div>
+        <div onclick="window.scrollTo(0,0)" class="see-more-catect-category" (click)="goToArticles('category', 'immo')">
+            <img src="assets/icons/category-immo.png" alt="" class="art-from-cat-img">
+            <div class="art-from-cat-label-for-name">Immobilier</div>
+        </div>
+    </section>
+    <section class="ct-ct-category ct-see-more-catect-category">
+        <div onclick="window.scrollTo(0,0)" class="see-more-catect-category" (click)="goToArticles('category', 'service')">
+            <img src="assets/icons/logo categ-service.png" alt="" class="art-from-cat-img">
+            <div class="art-from-cat-label-for-name">Services</div>
+        </div>
+        <div onclick="window.scrollTo(0,0)" class="see-more-catect-category" (click)="goToArticles('category', 'déco')">
+            <img src="assets/icons/category-déco.png" alt="" class="art-from-cat-img">
+            <div class="art-from-cat-label-for-name">Décoration</div>
+        </div>
+        <div onclick="window.scrollTo(0,0)" class="see-more-catect-category" (click)="goToArticles('category', 'informatique')">
+            <img src="assets/icons/category-informatique.png" alt="" class="art-from-cat-img">
+            <div class="art-from-cat-label-for-name">Informatique</div>
+        </div>
+        <div onclick="window.scrollTo(0,0)" class="see-more-catect-category" (click)="goToArticles('category', 'jeux')">
+            <img src="assets/icons/category-jeux.png" alt="" class="art-from-cat-img">
+            <div class="art-from-cat-label-for-name">Jeux et Jeux vidéo</div>
+        </div>
+    </section>
+</section>
+<section id="mc-ct-flex">
+    <!-- Electro méganers -->
+    <section class="ct-ct-category ct-category-738px" style="--bg:url('icons/category-electro.png');">
+        <div *ngFor="let article of electro" (click)="detailArticle(article._id)" class="ct-art-from-cat" onclick="OpenDetail();">
+            <img src="http://127.0.0.1:4100/articles_images/{{article.picture}}" alt="" class="art-from-cat-img">
+            <div class="art-from-cat-label-for-name">{{article.name}}</div>
+        </div>
+        <div class="voir-plus-btn-ct" onclick="window.scrollTo(0,0)" (click)="goToArticles('category', 'electro')">Voir tout <img src="../../assets/icons/next-icon.png" alt="" width="20"></div>
+    </section>
+    <!-- Automobiles -->
+    <section class="ct-ct-category ct-category-738px"  style="--bg: url('../assets/icons/category-cars.png');">
+        <div *ngFor="let article of auto" (click)="detailArticle(article._id)" class="ct-art-from-cat" onclick="OpenDetail();">
+            <img src="http://127.0.0.1:4100/articles_images/{{article.picture}}" alt="" class="art-from-cat-img">
+            <div class="art-from-cat-label-for-name">{{article.name}}</div>
+        </div>
+        <div class="voir-plus-btn-ct" onclick="window.scrollTo(0,0)" (click)="goToArticles('category', 'automobile')">Voir tout <img src="../../assets/icons/next-icon.png" alt="" width="20"></div>
+    </section>
+</section>
+<article *ngIf="isDetailling" id="detail-box">
+    <button class="btn btn-close" (click)="closeDetail()" onclick="CloseDetail()">X</button>
+    <router-outlet></router-outlet>
+</article>

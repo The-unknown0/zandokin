@@ -1,0 +1,212 @@
+<section id="section-articles-stng">
+    <div class="title">Paramètres des messages</div>
+    <main class="main-content-stng">
+        <article>
+            <div class="switch-holder">
+                <div class="switch-label">
+                    <i class="bi bi-bluetooth"></i>
+                    <span>Tout le monde peut M'envoyer des messages</span>
+                </div>
+                <div class="switch-toggle">
+                    <input checked type="checkbox" name="" id="can-msg">
+                    <label for="can-msg"></label>
+                </div>
+            </div>
+            <div class="switch-holder">
+                <div class="switch-label">
+                    <i class="bi bi-bluetooth"></i>
+                    <span>Montrer que les messages sont lus</span>
+                </div>
+                <div class="switch-toggle">
+                    <input checked type="checkbox" name="" id="show-seen">
+                    <label for="show-seen"></label>
+                </div>
+            </div>
+            <div class="text-right">
+                <button id="validate-changement-btn">appliquer les changements</button>
+            </div> 
+        </article>
+        <article>
+            <h4 class="title">Statistiques</h4>
+            <br>
+            <div class="ct-champ">
+                <div class="title" style="background: grey;"><span class="txt-red">*</span>Messages envoyés</div>
+                <div class="stat-data">
+                    25 messages
+                </div>
+            </div>
+            <div class="ct-champ">
+                <div class="title" style="background: #0cf;"><span class="txt-red">*</span>Messages récus</div>
+                <div class="stat-data">
+                    25 messages
+                </div>
+            </div>
+            <div class="ct-champ">
+                <div class="title" style="background: green;"><span class="txt-red">*</span>Messages lus</div>
+                <div class="stat-data">
+                    25 messages
+                </div>
+            </div>
+            <div class="ct-champ">
+                <div class="title" style="background: #8a2c2c;"><span class="txt-red">*</span>Messages non-lus </div>
+                <div class="stat-data">
+                    25 messages
+                </div>
+            </div>
+        </article>
+    </main>
+</section>
+<style>
+    .title{
+        border-bottom: 1px solid black;
+        padding: 5px;
+        color: #fff;
+        background: #000;
+    }
+    .stat-data{
+        padding: 10px;
+    }
+    .stng-input{
+        padding: 6px;
+        outline: none;
+        background: grey;
+        color: #fff;
+        display: block;
+        width: 95%;
+        border: none;
+        border-radius: 7px;
+        box-shadow: 0px 0px 5px #000;
+        margin: 10px;
+    }
+    .stng-input:focus{
+        background: #fff;
+        color: #000;
+        border: 1px solid #000;
+    }
+    .password-input{
+        padding: 6px;
+        outline: none;
+        background: #fff;
+        color: #000;
+        display: block;
+        width: 95%;
+        border: 1px solid #000;
+        border-radius: 7px;
+        margin: 10px;
+    }
+    .txt-red{
+        color: red;
+    }
+    .ct-champ{
+        border: 1px solid;
+        margin-bottom: 12px;
+        width: 75%;
+        margin: 15px auto;
+    }
+    .ct-champ-picture{
+        display: flex;
+        margin-bottom: 12px;
+    }
+    .text-right{
+        text-align: right;
+        margin: 10px;
+    }
+    #section-articles-stng{
+        border: 1px solid black;
+        margin: 15px 5px;
+    }
+    #validate-changement-btn{
+        padding: 7px;
+        border: 1px solid #0cf;
+        background: #fff;
+        color: #0cf;
+        border-radius: 7px;
+        transition: ease .5s;
+    }
+    #validate-changement-btn:hover{
+        background: #0cf;
+        color: #fff;
+        box-shadow: 0px 0px 5px #fff;
+    }
+    .switch-holder{
+        background: #fff;
+        display: flex;
+        padding: 10px 10px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 5px grey;
+        justify-content: space-between;
+        align-items: center;
+        margin: 10px;
+        width: 90%;
+    }
+    .switch-label{
+        padding: 0px 20px 0px 10px;
+    }
+    .switch-toggle{
+        height: 40px;
+    }
+    .switch-toggle input[type="checkbox"]{
+        position: absolute;
+        opacity: 0;
+        z-index: -2;
+    }
+    .switch-toggle input[type="checkbox"] + label{
+        position: relative;
+        display: inline-block;
+        width: 100px;
+        height: 40px;
+        border-radius: 20px;
+        margin: 0px;
+        cursor: pointer;
+        box-shadow: inset -8px -8px 15px #dadada;
+    }
+    .switch-toggle input[type="checkbox"] + label::before{
+        position: absolute;
+        content: "OFF";
+        font-size: 13px;
+        text-align: center;
+        line-height: 25px;
+        width: 45px;
+        height: 25px;
+        margin: 0px;
+        cursor: pointer;
+        box-shadow: none;
+        top: 8px;
+        left: 8px;
+        background-color: #eee;
+        transition: 0.3s ease-in-out;
+        border-radius: 20px;
+    }
+    .switch-toggle input[type="checkbox"]:checked + label::before{
+        position: absolute;
+        content: "ON";
+        background-color: green;
+        left:50%;
+        color: #eee;
+        transition: 0.3s ease-in-out;
+    }
+    @media (max-width: 480px) {
+        #main{
+            width: 100%;
+            height: 100%;
+            margin: 5px auto;
+        }
+        .main-content-stng{
+            width: 90%;
+            margin: 15px auto;
+        }
+        .stng-input{
+            width: 90%;
+        }
+        .password-input{
+            width: 90%;
+            margin: 10px;
+        }
+        .switch-holder{
+            font-size: 11px;
+            width: 92%;
+            margin: 5px 0px;
+            text-align: left;
+        }
+    }
+</style>

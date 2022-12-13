@@ -1,0 +1,312 @@
+/* Default inputs */
+a{
+    text-decoration: none;
+    color: #0cf;
+}
+.ipt-text{
+    width: 100%;
+    padding: 5px;
+    border-radius: 8px;
+    border: 1px solid black;
+    line-height: 1.42857143;
+    outline: 0;
+}
+.price{
+    padding: 6px;
+    background: #cdca32;
+    border-radius: 7px;
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    border: 1px solid;
+    width: max-content;
+}
+input::placeholder{
+    color: #ee7a0e;
+    text-align: center;
+    opacity: 1;
+}
+.ipt-text:focus{
+    line-height: 1.42857143;
+    outline: #0cf;
+    box-shadow: 0 0 8px #0cf;
+    border: 1px solid #0cf;
+    background: #dadada2d;
+}
+/* Default badge */
+.badge {
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    /* border-right: solid; */
+    cursor: pointer;
+    }
+.badge-item{
+    background: red;
+    color: white;
+    border-radius: 50%;
+    position: relative;
+    padding: 2px;
+    top: -3px;
+    right: -2px;
+}
+
+/* Listtile with badge */
+.icon-list-tile{
+    display: flex;
+    max-height: 25px;
+    align-items: center;
+    font-family: tahoma;
+    transition: ease .4s;
+    border-radius: 7px;
+    margin: 5px;
+    padding: 4px;
+    cursor: pointer;
+    width: max-content;
+    border: 1px solid;
+}
+.icon-list-tile:hover{
+    font-weight: bolder;
+    padding: 4px;
+    box-shadow: 0px 0px 5px grey;
+    border: none;
+}
+.icon-list-tile img{
+    width: 25px;
+    height: 25px;
+    border: 1px solid;
+    border-radius: 50%;
+}
+.icon-list-tile .badge {
+    padding: 3px 7px;
+    font-size: 10px;
+    font-weight: bold;
+    color: var(--color);
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+   }
+.icon-list-tile .badge-item{
+    background: red;
+    color: white;
+    border-radius: 50%;
+    position: relative;
+    padding: 2px;
+    top: -15px;
+    right: -20px;
+}
+.icon-list-tile + .width-100{
+    width: 80%;
+    max-width: 80%;
+    border: none;
+    box-shadow: 0px 0px 1px #fff;
+}
+.icon-list-tile + .width-100:hover{
+    background: #fff;
+    box-shadow: 0px 0px 1px grey;
+}
+.icon-list-tile + .width-100 img{
+    border: none;
+    border-radius: 0px;
+}
+.btn-close{
+    padding: 3px 10px 3px 10px;
+    border: 1px solid red;
+    cursor: pointer;
+    color: red;
+    border-radius:5px;
+    transition: ease 0.4s;
+    background: #fff;
+    margin: 2px 0px 0px 2px;
+}
+.btn-close:hover{
+    background: red;
+    color: #fff;
+}
+@media (max-width: 480px) {
+    .icon-list-tile{
+        height: 20px;
+        transition: ease .4s;
+        margin: 1px;
+        padding: 1px;
+        cursor: pointer;
+        width: 25px;
+        border: 1px solid;
+    }
+}
+/* The header */
+header{
+    max-width: 100%;
+    height: 80px;
+    /* background: grey; */
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#ct-logo-header{
+    border: none;
+}
+#logo-zando-header{
+    width: 300px;
+    height: 100px;
+}
+#ct-search-bucket-menu-header div{
+    display: flex;
+    justify-content: space-around;
+    max-width: max-content;
+}
+/* User menu from header user icon */
+.user-header-user-menu{
+    width: max-content;
+    background: #dadada;
+    padding: 3px;
+    border: none;
+    border-radius: 8px;
+    position: absolute;
+    top: 11%;
+    right: 15%;
+    box-shadow: 0px 0px 4px bisque;
+    color: #fff;
+    font-size: x-small;
+    display: none;
+    z-index: 10;
+}
+.icon-menu-listTile{
+    width: 20px;
+    padding: 0px;
+    margin: 0px;
+}
+.user-header-user-menu p{
+    display: flex;
+    align-items: center;
+    transition: ease 0.5s;
+    margin-bottom: 5px;
+    cursor: pointer;
+    
+}
+.user-header-user-menu p:hover{
+    font-weight: bold;
+    box-shadow: 0px 0px 4px  #000;
+    border-radius: 5px;
+    padding: 5px;
+}
+.user-header-user-menu p span{
+    margin-right: 5px;
+}
+.app-icon{
+    width: 100px;
+    height: 65px;
+}
+.bg-home{
+    background: linear-gradient(#0cf, #dadada,#dadada,#dadada,#dadada,#dadada,#dadada,#dadada,#dadada );
+}
+
+/* Responsiv */
+@media (min-width: 480px) {
+    #header-menu, #btn-menu{
+        display: none;
+        visibility: hidden;
+    }
+}
+/* @media (max-width: 1199px) {
+    .ct-art-from-cat{
+        width: 43%;
+        margin: 5px 2px;
+    }
+    .art-from-cat-label-for-name{
+        max-height: 20px;
+        font-size: 16px;
+        padding: 0px;
+        width: 100%;
+    }
+    .ct-hot-selling{
+        width: 45%;
+        font-size: 13px;
+        padding: 5px;
+        height: max-content;
+    }
+    .ct-solde{
+        padding: 5px;
+        margin: 5px;
+    }
+    .now-price{
+        padding: 5px;
+        font-size: 13px;
+        width: 50%;
+    }
+    .old-price{
+        padding: 5px;
+        font-size: 13px;
+        width: 50%;
+    }
+    .left-solde-price-ct{
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+} */
+
+@media (max-width: 767px) {
+    header{
+        width: 100%;
+        padding: 0px;
+    }
+    #logo-zando-header{
+        width: 180px;
+        height: 60px;
+    }
+    #header-menu{
+        width: 80%;
+        display: none;
+    }
+    .left-menu-list-tile{
+        font-size: 12px;
+        padding: 0px;
+    }
+    .left-menu-list-tile-icon{
+        width: 30px;
+        height: 30px;
+        margin: 0px 2px 0px 0px;
+    }
+}
+@media (max-width: 480px) {
+    .price{
+        padding: 2px;
+        font-size: 14px;
+    }
+    header{
+        width: 100%;
+        padding: 0px;
+    }
+    #logo-zando-header{
+        width: 180px;
+        height: 60px;
+    }
+    #ct-search-bucket-menu-header div{
+        display: none;
+    }
+    #left-menu{
+        display: none;
+    }
+    #header-menu{
+        width: 80%;
+        display: none;
+    }
+    #inpt-search{
+        display: none;
+    }
+    #header-menu #ct-left-menu section:nth-child(3){
+        display: none;
+    }
+    .user-header-user-menu{
+        top: 65px;
+        right: 1%;
+        font-size: small;
+    }
+}

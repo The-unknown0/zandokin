@@ -1,0 +1,22 @@
+@media (min-width: 480px) {
+    
+}
+@media ((max-width: 1199px) and (min-width: 481px)) {
+    
+}
+@media ((max-width: 979px) and (min-width: 481px)) {
+    
+}
+@media (max-width: 480px) {
+    #add-article{
+        width: 95%;
+        padding: 0px;
+    }
+    .w-100{
+        width: 90%;
+        margin: 0px;
+    }
+    #main-title{
+        font-size: 16px;
+    }
+}

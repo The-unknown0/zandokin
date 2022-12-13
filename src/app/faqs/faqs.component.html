@@ -1,0 +1,96 @@
+<style>
+    #main-title{
+        display: flex;
+        align-items: center;
+        margin: 5px;
+    }
+    #main-title img{
+        margin-right: 5px;
+    }
+    #faqs-main{
+        margin: 25px 15px;
+    }
+    .ct-faq-item{
+        padding: 10px;
+        border-radius: 6px;
+        box-shadow: 0px 0px 6px grey;
+        margin: 10px 0px;
+    }
+    .ct-faq-item dt{
+        margin-bottom: 5px;
+    }
+    .ct-faq-item input{
+        padding: 6px;
+        outline: 0;
+        border-radius: 5px;
+        border: none;
+        width: 60%;
+        margin-right: 5px;
+    }
+    .ct-faq-item button{
+        padding: 6px;
+        outline: 0;
+        border-radius: 5px;
+        border: 1px solid #0cf;
+        background: #fff;
+        color: #0cf;
+        transition: ease .5s;
+    }
+    .ct-faq-item button:hover{
+        background: #0cf;
+        color: #fff;
+    }
+    #btn-home{
+        display: flex;
+        align-items: center;
+        
+    }
+    .ct-btn-nav{
+        display: flex;
+        justify-content: space-around;
+    }
+    @media (max-width: 480px){
+        #btn-home{
+            width: max-content;
+            margin: 5px 0px;
+        }
+        .ct-btn-nav{
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+
+        }
+    }
+</style>
+<h3 id="main-title"><img src="assets/icons/icon - faqs.png" width="30" alt=""> Questions frequentes</h3>
+<main id="faqs-main">
+    <dl>
+        <div class="ct-faq-item">
+            <dt><b>Où vont nos infos ?</b></dt>
+            <dd>
+                Nous utilisons une politique de gestions des informations adaptée, 
+                une fois vos données soumises vous etes la seule personne à pouvoir y acceder
+            </dd>
+        </div>
+        <div class="ct-faq-item">
+            <dt><b>Où etes vous ?</b></dt>
+            <dd>Nos services sont disponibles 24h/7jrs et nos serveurs sont basés en europe et en amérique.</dd>
+        </div>
+        <div class="ct-faq-item">
+            <dt><b>Pourquoi zandokin ?</b></dt>
+            <dd>Mise à part sa popularité, zandokin est gratuit, disponible et accessible mais surtout très facile à Utiliser</dd>
+        </div>
+    </dl>
+    <div class="ct-faq-item">
+        <dt><b>Envoyez aussi votre question</b></dt>
+        <dd>
+            <input placeholder="Entrez quelque chose" type="text" name="" id="">
+            <button>Envoyez</button>
+        </dd>
+    </div>
+    <div class="ct-faq-item ct-btn-nav" >
+        <button routerLink="" id="btn-home"><img src="../../assets/icons/icon-home.png" alt="" width="25">Retour à l'acceuil</button>
+        <button (click)="navigateTo('faqs')" id="btn-home"><img src="../../assets/icons/icon-sponsorize.png" alt="" width="25">Sponsonriser Zandokin</button>
+        <button (click)="navigateTo('policy')" id="btn-home"><img src="../../assets/icons/icon-cu.png" alt="" width="25">Conditions générales d'utilisation</button>
+    </div>
+</main>
